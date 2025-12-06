@@ -18,7 +18,7 @@ interface PricingTier {
     monthly: number
     yearly: number
   }
-  description: string
+  description?: string
   features: Feature[]
   highlight?: boolean
   badge?: string
@@ -141,9 +141,11 @@ function PricingSection({ tiers, className }: PricingSectionProps) {
                       /{isYearly ? "year" : "month"}
                     </span>
                   </div>
-                  <p className="mt-2 text-sm text-gray-400">
-                    {tier.description}
-                  </p>
+                  {tier.description && (
+                    <p className="mt-2 text-sm text-gray-400">
+                      {tier.description}
+                    </p>
+                  )}
                 </div>
 
                 <div className="space-y-4">
